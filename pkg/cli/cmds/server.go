@@ -66,6 +66,7 @@ type Server struct {
 	ServerURL                string
 	FlannelBackend           string
 	FlannelIPv6Masq          bool
+	FlannelIPMasqDisableRandomFully bool
 	FlannelExternalIP        bool
 	EgressSelectorMode       string
 	DefaultLocalStoragePath  string
@@ -253,6 +254,11 @@ var ServerFlags = []cli.Flag{
 		Name:        "flannel-ipv6-masq",
 		Usage:       "(networking) Enable IPv6 masquerading for pod",
 		Destination: &ServerConfig.FlannelIPv6Masq,
+	},
+	&cli.BoolFlag{
+		Name:        "flannel-ip-masq-disable-random-fully",
+		Usage:       "(networking) Disable random fully-formed IP masquerading for Flannel",
+		Destination: &ServerConfig.FlannelIPMasqDisableRandomFully,
 	},
 	&cli.BoolFlag{
 		Name:        "flannel-external-ip",

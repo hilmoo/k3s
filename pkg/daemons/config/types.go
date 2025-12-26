@@ -100,6 +100,7 @@ type Flannel struct {
 	ConfOverride bool
 	Iface        *net.Interface
 	IPv6Masq     bool
+	IPMasqDisableRandomFully bool
 	ExternalIP   bool
 }
 
@@ -183,6 +184,7 @@ type CriticalControlArgs struct {
 	EmbeddedRegistry      bool         `cli:"embedded-registry"`
 	FlannelBackend        string       `cli:"flannel-backend"`
 	FlannelIPv6Masq       bool         `cli:"flannel-ipv6-masq"`
+	FlannelIPMasqDisableRandomFully bool         `cli:"flannel-ip-masq-disable-random-fully"`
 	FlannelExternalIP     bool         `cli:"flannel-external-ip"`
 	EgressSelectorMode    string       `cli:"egress-selector-mode"`
 	ServiceIPRange        *net.IPNet   `cli:"service-cidr"`

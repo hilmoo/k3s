@@ -586,6 +586,7 @@ func get(ctx context.Context, envInfo *cmds.Agent, proxy proxy.Proxy) (*config.N
 		Flannel: config.Flannel{
 			Backend:    controlConfig.FlannelBackend,
 			IPv6Masq:   controlConfig.FlannelIPv6Masq,
+			IPMasqDisableRandomFully: controlConfig.FlannelIPMasqDisableRandomFully,
 			ExternalIP: controlConfig.FlannelExternalIP,
 		},
 	}

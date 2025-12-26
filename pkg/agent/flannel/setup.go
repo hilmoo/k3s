@@ -116,7 +116,7 @@ func Run(ctx context.Context, wg *sync.WaitGroup, nodeConfig *config.Node) error
 		return pkgerrors.WithMessage(err, "failed to check netMode for flannel")
 	}
 	go func() {
-		err := flannel(ctx, wg, nodeConfig.Flannel.Iface, nodeConfig.Flannel.ConfFile, kubeConfig, nodeConfig.Flannel.IPv6Masq, nm)
+		err := flannel(ctx, wg, nodeConfig.Flannel.Iface, nodeConfig.Flannel.ConfFile, kubeConfig, nodeConfig.Flannel.IPMasqDisableRandomFully, nodeConfig.Flannel.IPv6Masq, nm)
 		if err != nil && !errors.Is(err, context.Canceled) {
 			signals.RequestShutdown(pkgerrors.WithMessage(err, "flannel exited"))
 		}
